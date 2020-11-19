@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 40px;
   width: 100%;
   max-width: 1200px;
 
@@ -15,11 +15,47 @@ const Container = styled.div`
   justify-content: flex-end;
 
   nav {
-    margin: 20px 0 0;
+    background: rgba(255, 255, 255, 0.8);
+
+    a {
+      text-decoration: none;
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+
+      span {
+        color: #283048;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .mobile-menu {
+    padding: 80px 40px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 300px;
+    height: 100vh;
+
+    a {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ea6f00;
+      padding-bottom: 20px;
+      align-items: center;
+
+      svg {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .main-menu {
     padding: 0 20px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    width: 100%;
 
     display: flex;
     justify-content: center;
@@ -66,30 +102,17 @@ const Container = styled.div`
         border-bottom: 2px solid #ea6f00;
       }
     }
-  }
 
-  a {
-    margin: 20px;
-    text-decoration: none;
-    position: relative;
-    z-index: 5;
+    a {
+      margin: 20px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
     span {
       margin-top: 10px;
-      color: #283048;
-      font-weight: bold;
-      font-size: 16px;
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    nav {
-      width: initial;
     }
   }
 `;

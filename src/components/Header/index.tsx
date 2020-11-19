@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import HamburgerMenu from 'react-hamburger-menu';
 import {
   FcHome,
   FcAbout,
@@ -10,15 +11,29 @@ import {
 
 import { Container } from './styles';
 
+interface WindowSizeData {
+  width: undefined | number;
+  height: undefined | number;
+}
+
 const Header: React.FC = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [windowSize, setWindowSize] = useState<WindowSizeData>({
+    width: undefined,
+    height: undefined,
+  });
+
+  const isMobile = windowSize.width && windowSize.width < 768;
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onScroll = (e: any) => {
       setScrollTop(e.target.documentElement.scrollTop);
     };
+
     window.addEventListener('scroll', onScroll);
 
     const totalHeight =
@@ -26,7 +41,21 @@ const Header: React.FC = () => {
 
     setScrollPosition(Math.floor((scrollTop / totalHeight) * 100));
 
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [scrollTop]);
 
   const topics = [
@@ -46,24 +75,50 @@ const Header: React.FC = () => {
     { title: 'Ferramentas', icon: <FcSupport size={24} />, link: '#tools' },
   ];
 
+  const handleHamburgerClick = useCallback(() => {
+    setToggleMenu(!toggleMenu);
+  }, [toggleMenu]);
+
   return (
     <Container>
-      <nav>
-        {!!scrollPosition && (
-          <div className="progress-bar">
-            <div
-              className="progress-bar__track"
-              style={{ width: `${scrollPosition}%` }}
-            />
-          </div>
-        )}
-        {topics.map(topic => (
-          <a href={topic.link} title={topic.title}>
-            {topic.icon}
-            <span>{topic.title}</span>
-          </a>
-        ))}
-      </nav>
+      {(toggleMenu || !isMobile) && (
+        <nav className={`${isMobile ? 'mobile-menu' : 'main-menu'}`}>
+          {!!scrollPosition && (
+            <div className="progress-bar">
+              <div
+                className="progress-bar__track"
+                style={{ width: `${scrollPosition}%` }}
+              />
+            </div>
+          )}
+          {topics.map(topic => (
+            <a
+              key={topic.title}
+              href={topic.link}
+              title={topic.title}
+              onClick={() => {
+                setToggleMenu(false);
+              }}
+            >
+              {topic.icon}
+              <span>{topic.title}</span>
+            </a>
+          ))}
+        </nav>
+      )}
+      {isMobile && (
+        <HamburgerMenu
+          isOpen={toggleMenu}
+          menuClicked={handleHamburgerClick}
+          width={18}
+          height={16}
+          strokeWidth={2}
+          rotate={0}
+          color="#283048"
+          borderRadius={0}
+          animationDuration={0.5}
+        />
+      )}
     </Container>
   );
 };

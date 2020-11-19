@@ -1,15 +1,19 @@
 import React from 'react';
 import { FiPlay, FiChevronRight } from 'react-icons/fi';
 
+// Components
 import Header from '../../components/Header';
 
+// Importance images
 import revolucaoDigitalImg from '../../assets/revolucao-digital.png';
 import smartphonesImg from '../../assets/smartphones.png';
 
+// Difficulties images
 import desorganizacaoImg from '../../assets/desorganizacao.png';
 import procrastinacaoImg from '../../assets/procrastinacao.png';
 import distracoesImg from '../../assets/distracoes.png';
 
+// Tips images
 import facaPlanosImg from '../../assets/faca-planos.png';
 import estabelecaPrazosImg from '../../assets/estabeleca-prazos.png';
 import aprendaADizerNaoImg from '../../assets/aprenda-a-dizer-nao.png';
@@ -17,11 +21,13 @@ import eviteMultitarefasImg from '../../assets/evite-multitarefas.png';
 import fujaDeDistracoesImg from '../../assets/fuja-das-distracoes.png';
 import cuideDeVoceImg from '../../assets/cuide-de-voce.png';
 
+// Tools imagens
 import trelloImg from '../../assets/trello.png';
 import notionImg from '../../assets/notion.png';
 import googleCalendarImg from '../../assets/google-calendar.png';
 import rescueTimeImg from '../../assets/rescue-time.png';
 
+// Styled components
 import {
   Container,
   Content,
@@ -36,6 +42,39 @@ import {
 } from './styles';
 
 const Home: React.FC = () => {
+  const objectives = [
+    {
+      title: 'effective',
+      content: 'Ser mais efetivo (fazer realmente o que precisa ser feito)',
+    },
+    { title: 'efficient', content: 'Ser mais eficiente (fazer bem feito)' },
+    {
+      title: 'productive',
+      content: 'Ser mais produtivo (aproveite o seu tempo da melhor maneira)',
+    },
+  ];
+
+  const difficulties = [
+    {
+      title: 'Desorganização',
+      img: desorganizacaoImg,
+      desc:
+        'Faz com que você gaste tempo demais procurando algo, além de ser um catalisador do estresse. Um ambiente desorganizado facilita dispersões, dificulta a concentração e impede que você seja mais ágil e efetivo.',
+    },
+    {
+      title: 'Procrastinação',
+      img: procrastinacaoImg,
+      desc:
+        'A atividade adiada precisará ser feita com menor planejamento, maior pressão e muitas vezes fora do horário em que deveria ser feita. Gera desconforto, ansiedade e descontrole.',
+    },
+    {
+      title: 'Distrações',
+      img: distracoesImg,
+      desc:
+        'Distrações constantes diminuem a produtividade, o que nos deixa insatisfeitos e desmotivados. Trabalhar em um ambiente sem distrações favorece a concentração e possibilita a conclusão da atividade em menos tempo.',
+    },
+  ];
+
   const tips = [
     {
       img: facaPlanosImg,
@@ -109,7 +148,6 @@ const Home: React.FC = () => {
   return (
     <Container id="home">
       <Header />
-
       <Hero>
         <span className="category">Soft Skill</span>
         <h1>Gestão do Tempo</h1>
@@ -119,7 +157,6 @@ const Home: React.FC = () => {
           <span>Começar</span>
         </a>
       </Hero>
-
       <Content>
         <Section id="what">
           <WhatContent>
@@ -137,25 +174,15 @@ const Home: React.FC = () => {
             </p>
             <h4>Principais objetivos:</h4>
             <ul>
-              <li>
-                <FiChevronRight size={20} />
-                <span>Ser mais efetivo</span>
-                (fazer realmente o que precisa ser feito)
-              </li>
-              <li>
-                <FiChevronRight size={20} />
-                <span>Ser mais eficiente</span>
-                (fazer bem feito)
-              </li>
-              <li>
-                <FiChevronRight size={20} />
-                <span>Ser mais produtivo</span>
-                (aproveite o seu tempo da melhor maneira)
-              </li>
+              {objectives.map(objective => (
+                <li key={objective.title}>
+                  <FiChevronRight size={20} />
+                  {objective.content}
+                </li>
+              ))}
             </ul>
           </WhatContent>
         </Section>
-
         <Section id="importance">
           <ImportanceContent>
             <TitleH2>Importância</TitleH2>
@@ -220,67 +247,31 @@ const Home: React.FC = () => {
             </p>
           </ImportanceContent>
         </Section>
-
         <Section id="difficulties">
           <DifficultiesContent>
             <TitleH2>Dificuldades</TitleH2>
             <div className="list">
-              <div className="list__item">
-                <img
-                  src={desorganizacaoImg}
-                  width="256"
-                  height="256"
-                  alt="Desorganização"
-                />
-                <h3>Desorganização</h3>
-                <p>
-                  Faz com que você gaste tempo demais procurando algo, além de
-                  ser um catalisador do estresse. Um ambiente desorganizado
-                  facilita dispersões, dificulta a concentração e impede que
-                  você seja mais ágil e efetivo.
-                </p>
-              </div>
-
-              <div className="list__item">
-                <img
-                  src={procrastinacaoImg}
-                  width="256"
-                  height="256"
-                  alt="Procrastinação"
-                />
-                <h3>Procrastinação</h3>
-                <p>
-                  A atividade adiada precisará ser feita com menor planejamento,
-                  maior pressão e muitas vezes fora do horário em que deveria
-                  ser feita. Gera desconforto, ansiedade e descontrole.
-                </p>
-              </div>
-
-              <div className="list__item">
-                <img
-                  src={distracoesImg}
-                  width="256"
-                  height="256"
-                  alt="DistraçÕes"
-                />
-                <h3>Distrações</h3>
-                <p>
-                  Distrações constantes diminuem a produtividade, o que nos
-                  deixa insatisfeitos e desmotivados. Trabalhar em um ambiente
-                  sem distrações favorece a concentração e possibilita a
-                  conclusão da atividade em menos tempo.
-                </p>
-              </div>
+              {difficulties.map(difficulty => (
+                <div key={difficulty.title} className="list__item">
+                  <img
+                    src={difficulty.img}
+                    width="256"
+                    height="256"
+                    alt={difficulty.title}
+                  />
+                  <h3>{difficulty.title}</h3>
+                  <p>{difficulty.desc}</p>
+                </div>
+              ))}
             </div>
           </DifficultiesContent>
         </Section>
-
         <Section id="tips">
           <TipsContent>
             <TitleH2>Dicas</TitleH2>
             <div className="list">
               {tips.map(tip => (
-                <div className="list__item">
+                <div key={tip.title} className="list__item">
                   <div className="list__item__img">
                     <img
                       src={tip.img}
@@ -298,13 +289,12 @@ const Home: React.FC = () => {
             </div>
           </TipsContent>
         </Section>
-
         <Section id="tools">
           <ToolsContent>
             <TitleH2>Ferramentas</TitleH2>
             <div className="list">
               {tools.map(tool => (
-                <div className="list__item">
+                <div key={tool.title} className="list__item">
                   <img
                     src={tool.img}
                     width="230"

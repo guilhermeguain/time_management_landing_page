@@ -128,11 +128,6 @@ const WhatContent = styled.div`
     & + li {
       margin-top: 10px;
     }
-
-    span {
-      margin-right: 10px;
-      font-weight: 700;
-    }
   }
 `;
 
