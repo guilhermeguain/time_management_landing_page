@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# Time Management landing page
+
+Landing page about time management soft skill.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Topics
+
+- What is time management
+- Importance of time management
+- Time management difficulties
+- Time management tips
+- Time management tools
 
 ## Available Scripts
 
