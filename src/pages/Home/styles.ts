@@ -6,7 +6,7 @@ import bgHero from '../../assets/bg-hero.jpg';
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background: url(${bgHero}) no-repeat 30% center;
+  background: url(${bgHero}) no-repeat 60% 30%;
   background-attachment: fixed;
 
   display: flex;
@@ -17,8 +17,13 @@ const Container = styled.div`
 
 const Content = styled.div`
   margin: 0 auto;
-  padding: 40px;
+  padding: 40px 20px;
+  width: 100%;
   max-width: 1200px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 40px;
+  }
 `;
 
 const Section = styled.section`
@@ -38,7 +43,7 @@ const TitleH2 = styled.h2`
 `;
 
 const Hero = styled.section`
-  margin: 30vh auto 0;
+  margin: 20vh auto 0;
   padding: 40px;
   width: 100vw;
   max-width: 1200px;
@@ -58,8 +63,8 @@ const Hero = styled.section`
   }
 
   h1 {
-    margin: 20px 0;
-    font-size: 64px;
+    margin: 40px 0 20px;
+    font-size: 36px;
     font-weight: 700;
     line-height: 1.2em;
     color: #283048;
@@ -67,9 +72,10 @@ const Hero = styled.section`
 
   h2 {
     margin-bottom: 40px;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 1em;
     color: white;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
   }
 
   a {
@@ -82,6 +88,7 @@ const Hero = styled.section`
     justify-content: center;
     text-decoration: none;
     color: #283048;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
 
     &:hover {
       color: #ea6f00;
@@ -100,10 +107,23 @@ const Hero = styled.section`
       line-height: 1;
     }
   }
+
+  @media only screen and (min-width: 768px) {
+    margin: 30vh auto 0;
+
+    h1 {
+      margin: 20px 0;
+      font-size: 64px;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+  }
 `;
 
 const WhatContent = styled.div`
-  padding: 40px;
+  padding: 20px;
 
   h4 {
     margin: 40px 0 10px;
@@ -129,10 +149,14 @@ const WhatContent = styled.div`
       margin-top: 10px;
     }
   }
+
+  @media only screen and (min-width: 768px) {
+    padding: 40px;
+  }
 `;
 
 const ImportanceContent = styled.div`
-  padding: 40px;
+  padding: 20px;
 
   .row {
     display: flex;
@@ -153,6 +177,8 @@ const ImportanceContent = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    padding: 40px;
+
     .row {
       flex-flow: row nowrap;
 
@@ -169,20 +195,16 @@ const ImportanceContent = styled.div`
 `;
 
 const DifficultiesContent = styled.div`
-  padding: 40px 40px 0 40px;
+  padding: 20px 20px 0 20px;
 
   .list {
     display: flex;
     flex-flow: column wrap;
 
     &__item {
-      margin: 0 0 40px 0;
+      margin: 0 0 20px 0;
 
       text-align: center;
-
-      &:nth-of-type(3n) {
-        margin: 0 0 40px 0;
-      }
 
       img {
         margin: 20px 0 10px;
@@ -192,6 +214,20 @@ const DifficultiesContent = styled.div`
         font-weight: 700;
         margin-bottom: 20px;
         color: #ea6f00;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      padding: 40px 40px 0 40px;
+
+      .list {
+        &__item {
+          margin: 0 0 40px 0;
+        }
+
+        &:nth-of-type(3n) {
+          margin: 0 0 40px 0;
+        }
       }
     }
   }
@@ -209,18 +245,21 @@ const DifficultiesContent = styled.div`
 `;
 
 const TipsContent = styled.div`
-  padding: 40px;
+  padding: 20px;
 
   .list {
     &__item {
       display: flex;
+      flex-flow: column wrap;
+      align-items: center;
 
       &:not(:last-of-type) {
         margin-bottom: 40px;
       }
 
       &__img {
-        margin-right: 40px;
+        margin: 0 0 20px 0;
+        min-width: 100px;
       }
 
       &__content {
@@ -229,6 +268,27 @@ const TipsContent = styled.div`
           text-transform: uppercase;
           font-weight: bold;
           color: #ea6f00;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    padding: 40px;
+
+    .list {
+      &__item {
+        flex-flow: row nowrap;
+
+        &__img {
+          margin: 0 40px 0 0;
+        }
+
+        &__content {
+          h3 {
+            text-align: left;
+          }
         }
       }
     }
