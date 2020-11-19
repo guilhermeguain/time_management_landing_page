@@ -15,6 +15,7 @@ const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onScroll = (e: any) => {
       setScrollTop(e.target.documentElement.scrollTop);
     };
