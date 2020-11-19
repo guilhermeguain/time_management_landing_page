@@ -29,6 +29,23 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
 
+  const topics = [
+    { title: 'Início', icon: <FcHome size={24} />, link: '#home' },
+    { title: 'O que é', icon: <FcAbout size={24} />, link: '#what' },
+    {
+      title: 'Importância',
+      icon: <FcApproval size={24} />,
+      link: '#importance',
+    },
+    {
+      title: 'Dificuldades',
+      icon: <FcHighPriority size={24} />,
+      link: '#difficulties',
+    },
+    { title: 'Dicas', icon: <FcIdea size={24} />, link: '#tips' },
+    { title: 'Ferramentas', icon: <FcSupport size={24} />, link: '#tools' },
+  ];
+
   return (
     <Container>
       <nav>
@@ -40,30 +57,12 @@ const Header: React.FC = () => {
             />
           </div>
         )}
-        <a href="#home">
-          <FcHome size={24} />
-          <span>Início</span>
-        </a>
-        <a href="#what">
-          <FcAbout size={24} />
-          <span>O que é</span>
-        </a>
-        <a href="#importance">
-          <FcApproval size={24} />
-          <span>Importância</span>
-        </a>
-        <a href="#difficulties">
-          <FcHighPriority size={24} />
-          <span>Dificuldades</span>
-        </a>
-        <a href="#tips">
-          <FcIdea size={24} />
-          <span>Dicas</span>
-        </a>
-        <a href="#tools">
-          <FcSupport size={24} />
-          <span>Ferramentas</span>
-        </a>
+        {topics.map(topic => (
+          <a href={topic.link} title={topic.title}>
+            {topic.icon}
+            <span>{topic.title}</span>
+          </a>
+        ))}
       </nav>
     </Container>
   );
