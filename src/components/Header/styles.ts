@@ -14,6 +14,23 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
 
+  .mobile-menu-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
   nav {
     background: rgba(255, 255, 255, 0.8);
 
@@ -38,7 +55,8 @@ const Container = styled.div`
     top: 0;
     right: 0;
 
-    width: 300px;
+    width: 100%;
+    max-width: 260px;
     height: 100vh;
 
     a {

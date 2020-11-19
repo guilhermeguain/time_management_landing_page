@@ -81,6 +81,13 @@ const Header: React.FC = () => {
 
   return (
     <Container>
+      <div
+        aria-hidden="true"
+        className={`mobile-menu-overlay ${toggleMenu ? 'active' : ''}`}
+        onClick={() => {
+          setToggleMenu(false);
+        }}
+      />
       {(toggleMenu || !isMobile) && (
         <nav className={`${isMobile ? 'mobile-menu' : 'main-menu'}`}>
           {!!scrollPosition && (
