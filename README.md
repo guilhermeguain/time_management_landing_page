@@ -6,6 +6,8 @@
 
 Landing page about time management soft skill.
 
+<a href="https://time.guilhermeguain.com.br/">Preview here</a>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Topics
