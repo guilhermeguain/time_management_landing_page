@@ -1,6 +1,12 @@
 # Time Management landing page
 
+<p align="center">
+  <img alt="Happy" src=".github/time_management.jpg" width="100%">
+</p>
+
 Landing page about time management soft skill.
+
+<a href="https://time.guilhermeguain.com.br/">Preview here</a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
