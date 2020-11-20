@@ -139,14 +139,30 @@ const WhatContent = styled.div`
     color: #283048;
 
     display: flex;
-    align-items: center;
+    align-items: baseline;
+
+    & + li {
+      margin-top: 20px;
+    }
 
     svg {
       margin-right: 5px;
+      min-width: 20px;
+
+      position: relative;
+      top: 3px;
     }
 
-    & + li {
-      margin-top: 10px;
+    p {
+      text-align: left;
+
+      span {
+        display: block;
+      }
+
+      .main {
+        font-weight: 700;
+      }
     }
   }
 
@@ -171,7 +187,8 @@ const ImportanceContent = styled.div`
       margin-bottom: 10px;
     }
 
-    div > p:first-child {
+    div > p:first-child,
+    div ~ img {
       margin-top: 10px;
     }
   }
@@ -183,7 +200,11 @@ const ImportanceContent = styled.div`
       flex-flow: row nowrap;
 
       img {
-        margin-bottom: 0px;
+        margin-bottom: 0;
+      }
+
+      div ~ img {
+        margin-top: 0;
       }
 
       img + div,

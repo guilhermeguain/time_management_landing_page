@@ -45,12 +45,21 @@ const Home: React.FC = () => {
   const objectives = [
     {
       title: 'effective',
-      content: 'Ser mais efetivo (fazer realmente o que precisa ser feito)',
+      content: {
+        main: 'Ser mais efetivo',
+        sub: '(fazer realmente o que precisa ser feito)',
+      },
     },
-    { title: 'efficient', content: 'Ser mais eficiente (fazer bem feito)' },
+    {
+      title: 'efficient',
+      content: { main: 'Ser mais eficiente', sub: '(fazer bem feito)' },
+    },
     {
       title: 'productive',
-      content: 'Ser mais produtivo (aproveite o seu tempo da melhor maneira)',
+      content: {
+        main: 'Ser mais produtivo',
+        sub: '(aproveite o seu tempo da melhor maneira)',
+      },
     },
   ];
 
@@ -177,7 +186,10 @@ const Home: React.FC = () => {
               {objectives.map(objective => (
                 <li key={objective.title}>
                   <FiChevronRight size={20} />
-                  {objective.content}
+                  <p>
+                    <span className="main">{objective.content.main}</span>
+                    <span className="sub">{objective.content.sub}</span>
+                  </p>
                 </li>
               ))}
             </ul>
