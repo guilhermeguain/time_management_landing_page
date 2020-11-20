@@ -128,6 +128,7 @@ const WhatContent = styled.div`
   h4 {
     margin: 40px 0 10px;
     font-weight: 700;
+    text-transform: uppercase;
     color: #ea6f00;
   }
 
@@ -168,6 +169,10 @@ const WhatContent = styled.div`
 
   @media only screen and (min-width: 768px) {
     padding: 40px;
+
+    h4 {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -181,6 +186,7 @@ const ImportanceContent = styled.div`
 
     img {
       margin-bottom: 20px;
+      border-radius: 20px;
     }
 
     img + div {
@@ -235,31 +241,28 @@ const DifficultiesContent = styled.div`
         font-weight: 700;
         margin-bottom: 20px;
         color: #ea6f00;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      padding: 40px 40px 0 40px;
-
-      .list {
-        &__item {
-          margin: 0 0 40px 0;
-        }
-
-        &:nth-of-type(3n) {
-          margin: 0 0 40px 0;
-        }
+        text-transform: uppercase;
       }
     }
   }
 
   @media only screen and (min-width: 768px) {
+    padding: 40px 40px 0 40px;
+
     .list {
       flex-flow: row wrap;
 
       &__item {
         margin: 0 40px 40px 0;
         max-width: calc(33.33% - (80px / 3));
+
+        &:nth-of-type(3n) {
+          margin: 0 0 40px 0;
+        }
+
+        h3 {
+          font-size: 24px;
+        }
       }
     }
   }
@@ -309,6 +312,7 @@ const TipsContent = styled.div`
         &__content {
           h3 {
             text-align: left;
+            font-size: 24px;
           }
         }
       }
@@ -317,21 +321,17 @@ const TipsContent = styled.div`
 `;
 
 const ToolsContent = styled.div`
-  padding: 40px 40px 0 40px;
+  padding: 20px 20px 0 20px;
 
   .list {
     display: flex;
     flex-direction: column;
 
     &__item {
-      margin: 0 0 40px 0;
+      margin: 0 0 20px 0;
 
       display: flex;
       flex-direction: column;
-
-      &:nth-of-type(4n) {
-        margin: 0 0 40px 0;
-      }
 
       img {
         margin: 20px 0;
@@ -343,6 +343,7 @@ const ToolsContent = styled.div`
         margin-bottom: 10px;
         font-weight: bold;
         color: #ea6f00;
+        text-transform: uppercase;
       }
 
       p {
@@ -372,12 +373,22 @@ const ToolsContent = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    padding: 40px 40px 0 40px;
+
     .list {
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
 
       &__item {
         margin: 0 40px 40px 0;
-        width: calc(25% - (120px / 4));
+        width: calc(50% - (40px / 2));
+
+        &:nth-of-type(2n) {
+          margin: 0 0 40px 0;
+        }
+
+        h3 {
+          font-size: 24px;
+        }
       }
     }
   }

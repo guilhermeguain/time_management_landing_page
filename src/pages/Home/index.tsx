@@ -58,7 +58,7 @@ const Home: React.FC = () => {
       title: 'productive',
       content: {
         main: 'Ser mais produtivo',
-        sub: '(aproveite o seu tempo da melhor maneira)',
+        sub: '(aproveitar o seu tempo da melhor maneira)',
       },
     },
   ];
@@ -171,15 +171,17 @@ const Home: React.FC = () => {
           <WhatContent>
             <TitleH2>O que é</TitleH2>
             <p>
-              Gestão do tempo é a habilidade de priorizar e organizar tarefas a
-              fim de alcançar um melhor aproveitamento do tempo.
+              <strong>Gestão do tempo</strong> é a habilidade de{' '}
+              <strong>priorizar e organizar tarefas</strong> a fim de alcançar
+              um melhor aproveitamento do tempo.
             </p>
             <p>
               Todos temos as mesmas 24 horas todos os dias, porém apenas algumas
               pessoas conseguem utilizá-las de forma mais eficiente. Gerir seu
-              tempo é justamente o processo de planejar, controlar e executar
-              suas ações de forma que você tenha consciência sobre a quantidade
-              de tempo que leva para fazer cada uma das suas atividades do dia.
+              tempo é justamente o processo de{' '}
+              <strong>planejar, controlar e executar</strong> suas ações de
+              forma que você tenha consciência sobre a quantidade de tempo que
+              leva para fazer cada uma das suas atividades do dia.
             </p>
             <h4>Principais objetivos:</h4>
             <ul>
@@ -202,8 +204,8 @@ const Home: React.FC = () => {
               <img src={revolucaoDigitalImg} alt="Revolução Digital" />
               <div>
                 <p>
-                  Antes do advento da chamada Revolução Digital (ainda em
-                  curso), existiam lacunas de tempo de espera que eram
+                  Antes do advento da chamada <strong>Revolução Digital</strong>{' '}
+                  (ainda em curso), existiam lacunas de tempo de espera que eram
                   compreendidas e respeitadas por todos durante a realização de
                   tarefas.
                 </p>
@@ -216,9 +218,10 @@ const Home: React.FC = () => {
               </div>
             </div>
             <p>
-              Mas a onipresença da informação transformou intervalos de tempo em
-              minutos produtivos, levando a espera passiva a reverter em
-              possibilidades de ganhos e melhores resultados.
+              Mas a <strong>onipresença da informação</strong> transformou
+              intervalos de tempo em minutos produtivos, levando a espera
+              passiva a reverter em possibilidades de ganhos e melhores
+              resultados.
             </p>
             <div className="row">
               <div>

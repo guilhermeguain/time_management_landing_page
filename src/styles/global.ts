@@ -17,7 +17,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: 20px 'Lato', sans-serif;
+    font: 16px 'Lato', sans-serif;
   }
 
   img {
@@ -28,6 +28,10 @@ export default createGlobalStyle`
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 500;
     color: #283048;
+  }
+
+  strong {
+    font-weight: 700;
   }
 
   p {
@@ -42,5 +46,11 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  @media only screen and (min-width: 768px) {
+    p {
+      font-size: 20px;
+    }
   }
 `;
